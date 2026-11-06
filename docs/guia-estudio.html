@@ -1,0 +1,1519 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ConsumoDatos · Guía de estudio</title>
+<style>
+:root{color-scheme:light;--ink:#1c2d40;--muted:#52657a;--line:#dbe3eb;--accent:#126b64;--paper:#fff;--back:#f3f6fa}*{box-sizing:border-box}body{margin:0;background:var(--back);color:var(--ink);font:16px/1.75 system-ui,Segoe UI,sans-serif}button,input{font:inherit}button{cursor:pointer}aside{position:fixed;inset:0 auto 0 0;width:275px;background:#102b39;color:white;padding:30px 20px;overflow:auto}.brand{font-size:23px;font-weight:750;letter-spacing:-.5px}.subtitle{font-size:14px;color:#bcd0d9;margin:4px 0 25px}.nav-item{display:block;width:100%;text-align:left;border:0;border-radius:9px;padding:11px 13px;margin:5px 0;background:transparent;color:#d9e7ec}.nav-item[aria-pressed=true]{background:#235465;color:white;font-weight:650}.nav-item:hover{background:#1d4556}.side-note{border-top:1px solid #35515e;margin-top:25px;padding-top:18px;font-size:13px;color:#bcd0d9}main{margin-left:275px;padding:36px clamp(20px,5vw,80px);max-width:1500px}.hero{margin-bottom:24px}.eyebrow{font-size:12px;letter-spacing:2px;color:var(--accent);font-weight:750}.hero h1{font-size:clamp(26px,4vw,39px);line-height:1.2;margin:9px 0 12px;letter-spacing:-1px}.hero p{color:var(--muted);max-width:820px}.panel,.document{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:clamp(18px,3vw,36px);margin:22px 0}.panel h2{margin:0 0 8px;font-size:20px}.flow{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:20px 0}.step{border:1px solid #bdddd8;background:#f0f9f7;border-radius:10px;padding:10px 14px;flex:1;min-width:115px}.step strong{display:block;color:#126b64}.step small{color:var(--muted)}.arrow{font-size:20px;color:#5d7b85}.note{border-left:4px solid #1e8b80;background:#edf8f6;padding:12px 17px}.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.toolbar input{flex:1;min-width:180px;padding:11px 14px;border:1px solid #bbc9d6;border-radius:9px}.toolbar button,.copy{border:1px solid #bdcbd8;background:white;border-radius:8px;padding:9px 13px;color:var(--ink)}#status{font-size:14px;color:var(--muted)}.source{font-size:13px;color:var(--muted);padding-bottom:15px;border-bottom:1px solid var(--line)}.document h1{font-size:29px;line-height:1.35;letter-spacing:-.6px}.document h2{margin-top:42px;font-size:24px;line-height:1.4}.document h3{margin-top:30px;font-size:19px}.document h4{font-size:17px}h1,h2,h3{scroll-margin-top:24px}a{color:#096b86;text-underline-offset:3px}pre{position:relative;background:#132c3b;color:#e5edf5;padding:22px;border-radius:10px;overflow:auto;font-size:13px;line-height:1.7;tab-size:4}code{font-family:Consolas,monospace}p code,li code,td code{background:#eaf0f5;border-radius:4px;padding:2px 5px;font-size:.88em}table{border-collapse:collapse;display:block;overflow:auto;width:100%;font-size:14px}th,td{border:1px solid var(--line);padding:11px 14px;text-align:left}th{background:#edf4f7}blockquote{margin:20px 0;padding:4px 20px;border-left:4px solid #acbdcd;background:#f5f8fb}hr{border:0;border-top:1px solid var(--line);margin:30px 0}summary{cursor:pointer;font-weight:650;color:#126b64}.code-wrap{margin:20px 0}.code-wrap summary{padding:8px 0}.copy{font-size:12px;padding:4px 10px;margin-top:8px}.toc-list{display:flex;flex-wrap:wrap;gap:7px 18px;padding-top:14px;font-size:13px}.toc-list a{max-width:100%}[hidden]{display:none!important}.document mark{background:#ffdf7a;color:#152b3a}.empty{padding:20px;color:var(--muted)}@media(max-width:850px){aside{position:static;width:100%;padding:18px}nav{display:flex;overflow:auto;gap:5px}.nav-item{width:auto;white-space:nowrap}.subtitle{margin-bottom:12px}.side-note{display:none}main{margin:0;padding:20px 15px}.flow{gap:5px}.arrow{display:none}.step{min-width:135px}}@media print{aside,.toolbar,.copy,.hero,.panel{display:none}main{margin:0;padding:0;max-width:none}.document{display:block!important;border:0;padding:0;break-before:page}details>*{display:block!important}pre{white-space:pre-wrap;background:#f0f0f0;color:black}h2,h3{break-after:avoid}a{color:black}}
+</style></head><body>
+<aside><div class="brand">ConsumoDatos</div><p class="subtitle">Documentación para entender el proyecto</p><nav aria-label="Documentos"><button class="nav-item" data-document="0" aria-pressed="true">Inicio</button><button class="nav-item" data-document="1" aria-pressed="false">1. Librerías</button><button class="nav-item" data-document="2" aria-pressed="false">2. Contactos</button><button class="nav-item" data-document="3" aria-pressed="false">3. Tareas y navegación</button><button class="nav-item" data-document="4" aria-pressed="false">4. Implementación</button><button class="nav-item" data-document="5" aria-pressed="false">5. Verificación</button></nav><p class="side-note">Lectura local y sin conexión.<br>Los ejemplos y el contenido provienen de los Markdown del proyecto.</p></aside>
+<main><header class="hero"><div class="eyebrow">GUÍA DE ESTUDIO · ANDROID</div><h1>Del formulario a la base de datos</h1><p>Recorre las guías por tema. Primero entiende el recorrido de los datos; después abre los bloques de código para ver cómo se implementa cada parte.</p></header>
+<section class="panel" aria-label="Mapa del proyecto"><h2>Cómo se conectan las piezas</h2><p>Al guardar un contacto o una tarea, cada capa tiene una responsabilidad:</p><div class="flow"><div class="step"><strong>1. Pantalla</strong><small>Muestra y recibe acciones</small></div><span class="arrow">→</span><div class="step"><strong>2. ViewModel</strong><small>Valida y coordina</small></div><span class="arrow">→</span><div class="step"><strong>3. Repositorio</strong><small>Accede a las fuentes</small></div><span class="arrow">→</span><div class="step"><strong>4. Fuente y DAO</strong><small>Ejecutan la operación</small></div><span class="arrow">→</span><div class="step"><strong>5. Room</strong><small>Guarda en SQLite</small></div></div><div class="note"><strong>¿Cómo vuelve el dato a la pantalla?</strong> Room emite una nueva lista con <code>Flow</code>. El repositorio la transforma, el ViewModel actualiza su <code>StateFlow</code> y Compose vuelve a dibujar la lista. Hilt proporciona las dependencias que conectan estas piezas.</div><details style="margin-top:16px"><summary>Qué estudiar primero</summary><p><strong>Contactos:</strong> empieza por el modelo, sigue por Entity y DAO, después repositorio, ViewModel y pantalla. <strong>Tareas y navegación:</strong> reutiliza el mismo recorrido local y agrega una segunda ruta. Retrofit es la parte remota de contactos; el formulario descrito guarda en Room.</p></details></section>
+<section class="panel"><div class="toolbar"><input id="search" type="search" placeholder="Buscar en los títulos de las guías…" aria-label="Buscar secciones por título"><button id="expand" type="button">Mostrar todo el código</button><button type="button" id="print">Imprimir / PDF</button></div><div id="status" role="status" aria-live="polite"></div><div class="toc-list" id="toc"></div></section>
+<article id="document-0" class="document" data-title="Inicio"><p class="source">Fuente: README.md</p><h1 id="doc0-consumodatos">ConsumoDatos</h1>
+<p>Aplicación Android en Kotlin y Jetpack Compose implementada a partir de las guías de <code>docs/</code>. El paquete es <code>com.rojas.consumodatos</code>.</p>
+<h2 id="doc0-funciones">Funciones</h2>
+<ul>
+<li><strong>Contactos:</strong> guardar nombre y teléfono, listar alfabéticamente y eliminar por identificador.</li>
+<li><strong>Tareas:</strong> crear con estado pendiente y listar desde la más reciente. El estado se muestra como texto.</li>
+<li><strong>Navegación:</strong> barra inferior con las rutas <code>contacts</code> y <code>tasks</code>; la pantalla inicial es Contactos.</li>
+<li><strong>Persistencia:</strong> Room conserva ambas listas en la base local <code>contacts_db</code>.</li>
+</ul>
+<p>Las entradas se recortan con <code>trim()</code> y no se guardan contactos con campos vacíos ni tareas sin nombre.</p>
+<h2 id="doc0-documentacion">Documentación</h2>
+<ul>
+<li><a href="#document-1" data-document="1">Inicialización y librerías</a>.</li>
+<li><a href="#document-2" data-document="2">Guía de contactos, Room, Retrofit y Hilt</a>.</li>
+<li><a href="#document-3" data-document="3">Guía de tareas y navegación</a>.</li>
+<li><a href="#document-4" data-document="4">Detalle de la implementación</a>.</li>
+<li><a href="#document-5" data-document="5">Verificación del proyecto</a>.</li>
+</ul>
+<h2 id="doc0-ejecutar">Ejecutar</h2>
+<p>Abrir la carpeta raíz en Android Studio, sincronizar Gradle y ejecutar el módulo <code>app</code> en un dispositivo o emulador con Android API 27 o superior. El proyecto configura compileSdk y targetSdk 37; requiere ese SDK instalado. <code>local.properties</code> debe indicar la ubicación local del Android SDK y no se debe compartir entre equipos.</p>
+<p>Desde PowerShell en la raíz:</p>
+<pre><code class="language-powershell">.\gradlew.bat :app:assembleDebug
+.\gradlew.bat :app:testDebugUnitTest
+</code></pre>
+<p>El APK de depuración se genera en <code>app/build/outputs/apk/debug/app-debug.apk</code>. El proyecto incluye configuración de JVM de Gradle con versión 25 y compilación Java con compatibilidad 17.</p>
+<h2 id="doc0-alcance-de-la-red">Alcance de la red</h2>
+<p>Se incluyen DTO, servicio Retrofit, fuente remota y <code>syncRemoteContacts()</code> como indican las guías. La interfaz guarda localmente y no llama automáticamente a la red. La URL de ejemplo es <code>https://jsonplaceholder.typicode.com/</code> y el contrato declara <code>GET contacts</code> y <code>POST contacts</code>; debe existir un servidor compatible para utilizar esas operaciones. No se cambia el contrato por otro recurso ni se agrega un servidor.</p></article>
+<article id="document-1" class="document" hidden data-title="1. Librerías"><p class="source">Fuente: docs/init.md</p><h1 id="doc1-documentacion-de-inicializacion-del-proyecto-librerias-base">Documentación de Inicialización del Proyecto: Librerías Base</h1>
+<p>Este documento registra los cambios, configuraciones e instalación de librerías bases para la persistencia local, programación asíncrona, consumo de APIs HTTP e inyección de dependencias en la aplicación <strong>ConsumoDatos</strong>.</p>
+<hr>
+<h2 id="doc1-resumen-de-acciones-realizadas">🚀 Resumen de Acciones Realizadas</h2>
+<ol>
+<li>
+<p><strong>Instalación de Dependencias</strong>:
+   - <strong>Room Database</strong> (v2.6.1): Persistencia de datos local en SQLite.
+   - <strong>Kotlin Coroutines</strong> (v1.10.1): Manejo asíncrono y reactivo (<code>suspend</code>, <code>Flow</code>).
+   - <strong>Retrofit</strong> (v2.11.0): Abstracción e interfaz client REST HTTP.
+   - <strong>OkHttp</strong> (v4.12.0) &amp; <strong>HttpLoggingInterceptor</strong>: Cliente HTTP y logging de peticiones/respuestas.
+   - <strong>Hilt / Dagger</strong> (v2.55 &amp; Navigation Compose v1.2.0): Inversión e Inyección de Dependencias.
+   - <strong>Google KSP</strong> (v2.1.0-1.0.29): Procesador de anotaciones para Room y Hilt en Kotlin.</p>
+</li>
+<li>
+<p><strong>Configuración del Entorno y Build</strong>:
+   - Actualización del Catálogo de Versiones en <code>gradle/libs.versions.toml</code>.
+   - Inclusión de las librerías en <code>build.gradle.kts</code> (raíz y módulo <code>:app</code>).
+   - Adición del permiso <code>android.permission.INTERNET</code> en <code>AndroidManifest.xml</code>.
+   - Ajuste de compatibilidad en <code>gradle.properties</code> (<code>android.disallowKotlinSourceSets=false</code>).
+   - Confirmación de compilación del proyecto (<code>BUILD SUCCESSFUL</code>).</p>
+</li>
+</ol>
+<hr>
+<h2 id="doc1-detalle-de-archivos-modificados">📦 Detalle de Archivos Modificados</h2>
+<h3 id="doc1-1-gradlelibsversionstoml">1. <code>gradle/libs.versions.toml</code></h3>
+<p>Se definieron las versiones y librerías base dentro del Version Catalog:</p>
+<pre><code class="language-toml">[versions]
+agp = &quot;9.4.1&quot;
+coreKtx = &quot;1.19.1&quot;
+junit = &quot;4.13.2&quot;
+junitVersion = &quot;1.3.0&quot;
+espressoCore = &quot;3.7.0&quot;
+lifecycleRuntimeKtx = &quot;2.11.0&quot;
+activityCompose = &quot;1.13.0&quot;
+kotlin = &quot;2.1.0&quot;
+composeBom = &quot;2026.02.01&quot;
+
+ksp = &quot;2.1.0-1.0.29&quot;
+room = &quot;2.6.1&quot;
+coroutines = &quot;1.10.1&quot;
+retrofit = &quot;2.11.0&quot;
+okhttp = &quot;4.12.0&quot;
+hilt = &quot;2.55&quot;
+hiltNavigationCompose = &quot;1.2.0&quot;
+
+[libraries]
+# Room
+room-runtime = { group = &quot;androidx.room&quot;, name = &quot;room-runtime&quot;, version.ref = &quot;room&quot; }
+room-ktx = { group = &quot;androidx.room&quot;, name = &quot;room-ktx&quot;, version.ref = &quot;room&quot; }
+room-compiler = { group = &quot;androidx.room&quot;, name = &quot;room-compiler&quot;, version.ref = &quot;room&quot; }
+
+# Coroutines
+kotlinx-coroutines-core = { group = &quot;org.jetbrains.kotlinx&quot;, name = &quot;kotlinx-coroutines-core&quot;, version.ref = &quot;coroutines&quot; }
+kotlinx-coroutines-android = { group = &quot;org.jetbrains.kotlinx&quot;, name = &quot;kotlinx-coroutines-android&quot;, version.ref = &quot;coroutines&quot; }
+
+# Retrofit
+retrofit = { group = &quot;com.squareup.retrofit2&quot;, name = &quot;retrofit&quot;, version.ref = &quot;retrofit&quot; }
+retrofit-converter-gson = { group = &quot;com.squareup.retrofit2&quot;, name = &quot;converter-gson&quot;, version.ref = &quot;retrofit&quot; }
+
+# OkHttp
+okhttp = { group = &quot;com.squareup.okhttp3&quot;, name = &quot;okhttp&quot;, version.ref = &quot;okhttp&quot; }
+okhttp-logging-interceptor = { group = &quot;com.squareup.okhttp3&quot;, name = &quot;logging-interceptor&quot;, version.ref = &quot;okhttp&quot; }
+
+# Hilt (Inversión / Inyección de Dependencias)
+hilt-android = { group = &quot;com.google.dagger&quot;, name = &quot;hilt-android&quot;, version.ref = &quot;hilt&quot; }
+hilt-compiler = { group = &quot;com.google.dagger&quot;, name = &quot;hilt-compiler&quot;, version.ref = &quot;hilt&quot; }
+hilt-navigation-compose = { group = &quot;androidx.hilt&quot;, name = &quot;hilt-navigation-compose&quot;, version.ref = &quot;hiltNavigationCompose&quot; }
+
+[plugins]
+android-application = { id = &quot;com.android.application&quot;, version.ref = &quot;agp&quot; }
+kotlin-compose = { id = &quot;org.jetbrains.kotlin.plugin.compose&quot;, version.ref = &quot;kotlin&quot; }
+ksp = { id = &quot;com.google.devtools.ksp&quot;, version.ref = &quot;ksp&quot; }
+</code></pre>
+<h3 id="doc1-2-buildgradlekts-raiz">2. <code>build.gradle.kts</code> (Raíz)</h3>
+<pre><code class="language-kotlin">plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.compose) apply false
+    alias(libs.plugins.ksp) apply false
+}
+</code></pre>
+<h3 id="doc1-3-appbuildgradlekts">3. <code>app/build.gradle.kts</code></h3>
+<pre><code class="language-kotlin">plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
+}
+
+android {
+    namespace = &quot;com.rojas.consumodatos&quot;
+    compileSdk {
+        version = release(37)
+    }
+
+    defaultConfig {
+        applicationId = &quot;com.rojas.consumodatos&quot;
+        minSdk = 27
+        targetSdk = 37
+        versionCode = 1
+        versionName = &quot;1.0&quot;
+
+        testInstrumentationRunner = &quot;androidx.test.runner.AndroidJUnitRunner&quot;
+    }
+
+    // ...
+}
+
+dependencies {
+    // AndroidX &amp; Compose Base
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+
+    // Corrutinas
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Room (Persistencia local)
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+
+    // OkHttp &amp; Retrofit (Networking HTTP)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging.interceptor)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+
+    // Hilt (Inversión / Inyección de dependencias)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
+}
+</code></pre>
+<h3 id="doc1-4-appsrcmainandroidmanifestxml">4. <code>app/src/main/AndroidManifest.xml</code></h3>
+<p>Se añadió la directiva para solicitar acceso a internet:</p>
+<pre><code class="language-xml">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+</code></pre>
+<h3 id="doc1-5-gradleproperties">5. <code>gradle.properties</code></h3>
+<p>Se configuró el flag de soporte para source sets con KSP:</p>
+<pre><code class="language-properties">android.disallowKotlinSourceSets=false
+</code></pre>
+<hr>
+<h2 id="doc1-descripcion-teorica-de-las-librerias-base">📘 Descripción Teórica de las Librerías Base</h2>
+<h3 id="doc1-1-inversion-e-inyeccion-de-dependencias-hilt-dagger">1. Inversión e Inyección de Dependencias (<code>Hilt / Dagger</code>)</h3>
+<h4 id="doc1-que-es-la-inversion-de-dependencias-dependency-inversion">¿Qué es la Inversión de Dependencias (Dependency Inversion)?</h4>
+<p>La <strong>Inversión de Dependencias</strong> es el 5º principio <strong>SOLID</strong> (Dependency Inversion Principle - DIP). Establece que:
+1. Los módulos de alto nivel no deben depender de los módulos de bajo nivel; ambos deben depender de abstracciones (interfaces).
+2. Las abstracciones no deben depender de los detalles; los detalles deben depender de las abstracciones.</p>
+<p>En lugar de que una clase cree sus propias dependencias instanciándolas directamente (ej. <code>val repository = ContactRepositoryImpl(ContactDaoImpl())</code>), la <strong>Inyección de Dependencias (DI)</strong> invierte el control: un contenedor externo instancía y provee (inyecta) las dependencias requeridas.</p>
+<h4 id="doc1-por-que-usar-hilt-en-android">¿Por qué usar Hilt en Android?</h4>
+<ul>
+<li><strong>Desacoplamiento</strong>: Facilita cambiar la implementación de un componente (ej. reemplazar un DataSource simulado por uno real de red) sin modificar las clases consumidoras.</li>
+<li><strong>Testabilidad</strong>: Permite inyectar dependencias mock/fake fácilmente en pruebas unitarias.</li>
+<li><strong>Gestión Automática de Ciclo de Vida</strong>: Hilt vincula las dependencias al ciclo de vida de la aplicación (<code>SingletonComponent</code>), Activity (<code>ActivityComponent</code>) o ViewModel (<code>ViewModelComponent</code>).</li>
+</ul>
+<h4 id="doc1-componentes-clave-de-hilt">Componentes Clave de Hilt:</h4>
+<ul>
+<li><code>@HiltAndroidApp</code>: Anotación para la clase <code>Application</code> que genera la jerarquía de componentes Dagger a nivel de app.</li>
+<li><code>@AndroidEntryPoint</code>: Anota Activities o Fragments para habilitar la inyección de dependencias en componentes de Android.</li>
+<li><code>@HiltViewModel</code> &amp; <code>@Inject constructor(...)</code>: Permite a Hilt inyectar automáticamente repositorios y casos de uso en los <code>ViewModel</code>.</li>
+<li><code>@Module</code> &amp; <code>@InstallIn(...)</code>: Módulos que le indican a Hilt cómo construir dependencias que no tienen constructor inyectable (interfaces, librerías de terceros como Retrofit, OkHttp y Room).</li>
+<li><code>@Provides</code> / <code>@Binds</code>: Métodos dentro de un <code>@Module</code> que construyen y retornan la instancia requerida.</li>
+</ul>
+<hr>
+<h3 id="doc1-2-room-database-androidxroom">2. Room Database (<code>androidx.room</code>)</h3>
+<ul>
+<li><strong>Propósito</strong>: Proporciona una capa de abstracción sobre SQLite para la persistencia local de datos.</li>
+<li><strong>Componentes</strong>:</li>
+<li><code>@Entity</code>: Representa la estructura de las tablas en la BD.</li>
+<li><code>@Dao</code>: Define los métodos de acceso a los datos (consultas SQL, inserción, actualización). Soporta retornos de tipo <code>Flow&lt;T&gt;</code> y funciones <code>suspend</code>.</li>
+<li><code>@Database</code>: Define la instancia principal de la base de datos.</li>
+</ul>
+<hr>
+<h3 id="doc1-3-kotlin-coroutines-kotlinxcoroutines">3. Kotlin Coroutines (<code>kotlinx.coroutines</code>)</h3>
+<ul>
+<li><strong>Propósito</strong>: Manejo asíncrono no bloqueante en Android.</li>
+<li><strong>Dispatchers Principales</strong>:</li>
+<li><code>Dispatchers.IO</code>: Para llamadas de red y operaciones de lectura/escritura en disco (Room, SharedPreferences/DataStore).</li>
+<li><code>Dispatchers.Main</code>: Para actualizar la interfaz de usuario.</li>
+<li><code>Dispatchers.Default</code>: Para tareas pesadas de procesamiento de CPU.</li>
+</ul>
+<hr>
+<h3 id="doc1-4-retrofit-comsquareupretrofit2">4. Retrofit (<code>com.squareup.retrofit2</code>)</h3>
+<ul>
+<li><strong>Propósito</strong>: Cliente REST type-safe para Android que convierte interfaces Kotlin en llamadas HTTP.</li>
+<li><strong>Características</strong>:</li>
+<li>Permite definir peticiones asíncronas con la palabra clave <code>suspend</code>.</li>
+<li>Integra convertidores JSON (ej. <code>GsonConverterFactory</code>) para mapear respuestas HTTP directamente a objetos de datos (<code>DTO</code>).</li>
+</ul>
+<hr>
+<h3 id="doc1-5-okhttp-comsquareupokhttp3">5. OkHttp (<code>com.squareup.okhttp3</code>)</h3>
+<ul>
+<li><strong>Propósito</strong>: Cliente de transporte de red HTTP subyacente a Retrofit.</li>
+<li><strong>Características</strong>:</li>
+<li>Maneja la reutilización de conexiones TCP, caché HTTP y compresión.</li>
+<li>Soporta <strong>Interceptores</strong> (<code>HttpLoggingInterceptor</code>) para auditar y depurar peticiones y respuestas HTTP.</li>
+</ul>
+<hr>
+<h2 id="doc1-verificacion-de-compilacion">✅ Verificación de Compilación</h2>
+<p>Se ejecutó la tarea Gradle <code>:app:assembleDebug</code> obteniendo el resultado:
+- <strong>Status</strong>: <code>Build finished successfully.</code></p></article>
+<article id="document-2" class="document" hidden data-title="2. Contactos"><p class="source">Fuente: docs/guia-room.md</p><h1 id="doc2-guia-paso-a-paso-implementacion-de-room-retrofit-y-hilt-directorio-telefonico">Guía Paso a Paso: Implementación de Room, Retrofit y Hilt (Directorio Telefónico)</h1>
+<p>Esta guía tutorial explica paso a paso cómo construir una aplicación de <strong>Listado Telefónico</strong> en Android utilizando las mejores prácticas recomendadas por Google: <strong>Clean Architecture</strong>, <strong>MVVM</strong>, <strong>Room</strong>, <strong>Retrofit</strong>, <strong>Corrutinas / Flow</strong>, <strong>Jetpack Compose</strong> e <strong>Inyección de Dependencias con Hilt</strong>.</p>
+<hr>
+<h2 id="doc2-1-arquitectura-y-estructura-del-proyecto">📐 1. Arquitectura y Estructura del Proyecto</h2>
+<p>El flujo de datos sigue un patrón unireccional desacoplado:</p>
+<pre><code class="language-text">[Jetpack Compose UI] ◄──(StateFlow)── [ContactViewModel]
+                                             │
+                                     (ContactRepository)
+                                       /           \
+               (ContactLocalDataSource)             (ContactRemoteDataSource)
+                       │                                    │
+                  [Room DAO]                         [Retrofit API]
+                       │                                    │
+                 (SQLite DB)                          (Servidor REST)
+</code></pre>
+<h3 id="doc2-por-que-esta-arquitectura">¿Por qué esta arquitectura?</h3>
+<p>Separar el proyecto en capas (<code>domain</code>, <code>data</code>, <code>ui</code>, <code>di</code>) no es una formalidad: cada capa resuelve un problema concreto y, al aislarlas, un cambio en una no obliga a tocar las demás.</p>
+<ul>
+<li><strong><code>domain</code></strong>: es el "centro" de la app. Define <em>qué</em> es un contacto y <em>qué</em> se puede hacer con él, sin saber si los datos vienen de SQLite, de una API o de un archivo. Así, si mañana cambias Room por otra base de datos, esta capa no se entera.</li>
+<li><strong><code>data</code></strong>: es el "cómo". Sabe hablar con Room (<code>local</code>) y con Retrofit (<code>remote</code>), y sabe traducir esos formatos técnicos al modelo de dominio (<code>mapper</code>). El <code>repository</code> de esta capa es quien decide, en la práctica, de dónde sale la información que ve el usuario.</li>
+<li><strong><code>ui</code></strong>: es la "cara visible". Solo le importa mostrar datos y reaccionar a acciones del usuario (escribir, tocar un botón). No sabe ni le importa si detrás hay Room, Retrofit o ambos.</li>
+<li><strong><code>di</code></strong>: es el "pegamento". Como cada capa depende de interfaces (no de implementaciones concretas) para no acoplarse, algo tiene que decidir <em>qué implementación real</em> se usa en cada caso; eso lo hace Hilt a través de estos módulos.</li>
+</ul>
+<p>El flujo de datos es unidireccional: la UI nunca escribe directamente en la base de datos ni llama a la API; todo pasa por el ViewModel → Repository → (Room y/o Retrofit). Esto hace que, sin importar de dónde vengan los datos, la UI siempre reciba la misma forma de información (<code>Flow&lt;List&lt;Contact&gt;&gt;</code>) y se actualice sola cuando esos datos cambian.</p>
+<p>La estructura de paquetes sugerida en <code>com.rojas.consumodatos</code> es:</p>
+<pre><code class="language-text">com.rojas.consumodatos/
+ ├── domain/
+ │    ├── model/Contact.kt                  # Modelo de Dominio
+ │    └── repository/ContactRepository.kt    # Interfaz del Repositorio
+ ├── data/
+ │    ├── local/
+ │    │    ├── ContactEntity.kt            # Entidad Room (Tabla 'contacts')
+ │    │    ├── ContactDao.kt               # DAO con Consultas SQL
+ │    │    ├── AppDatabase.kt              # RoomDatabase
+ │    │    └── ContactLocalDataSource.kt   # Fuente de Datos Local
+ │    ├── remote/
+ │    │    ├── ContactDto.kt               # Data Transfer Object (JSON)
+ │    │    ├── ContactApiService.kt        # Interfaz Retrofit
+ │    │    └── ContactRemoteDataSource.kt  # Fuente de Datos Remota
+ │    ├── mapper/
+ │    │    └── ContactMapper.kt            # Mapeadores DTO &lt;-&gt; Entity &lt;-&gt; Domain
+ │    └── repository/
+ │         └── ContactRepositoryImpl.kt    # Implementación del Repositorio
+ ├── di/
+ │    ├── DatabaseModule.kt               # Proveedor Hilt para Room
+ │    ├── NetworkModule.kt                # Proveedor Hilt para Retrofit
+ │    └── RepositoryModule.kt             # Vinculación Hilt para Repositorio
+ └── ui/
+      └── contact/
+           ├── ContactUiState.kt           # Estado inmutable de la UI
+           ├── ContactViewModel.kt         # ViewModel
+           └── ContactScreen.kt            # Vista Compose (Formulario y Lista)
+</code></pre>
+<hr>
+<h2 id="doc2-2-paso-1-modelo-de-dominio-domainmodelcontactkt">📝 2. Paso 1: Modelo de Dominio (<code>domain/model/Contact.kt</code>)</h2>
+<p><strong>¿Por qué existe este archivo?</strong> Porque Room necesita anotaciones (<code>@Entity</code>, <code>@PrimaryKey</code>) y Retrofit/Gson necesitan las suyas (<code>@SerializedName</code>), pero el resto de la app (ViewModel, UI) no debería depender de ninguna de esas librerías. <code>Contact</code> es la representación "neutral" del concepto de negocio: un contacto tiene <code>id</code>, <code>name</code> y <code>phone</code>, punto. Es el tipo que viaja por <code>domain/repository</code>, <code>ViewModel</code> y <code>Screen</code>.</p>
+<p><strong>Qué sentido tiene crearlo:</strong> si en el futuro cambias Room por otra librería de persistencia, o Retrofit por otro cliente HTTP, esta clase no cambia, y por lo tanto el ViewModel y la UI tampoco. Es el desacople entre "cómo se guardan/transportan los datos" y "qué son los datos para el negocio".</p>
+<p>Crea la clase de modelo de dominio pura. Esta clase no tiene anotaciones de Room ni de Retrofit:</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.domain.model
+
+data class Contact(
+    val id: Long = 0,
+    val name: String,
+    val phone: String
+)
+</code></pre>
+<hr>
+<h2 id="doc2-3-paso-2-capa-local-con-room-datalocal">💾 3. Paso 2: Capa Local con Room (<code>data/local</code>)</h2>
+<p>Esta subcarpeta concentra todo lo que sabe hablar con <strong>SQLite a través de Room</strong>: la tabla (<code>ContactEntity</code>), las consultas (<code>ContactDao</code>), el contenedor de la base de datos (<code>AppDatabase</code>) y una capa fina que oculta el DAO al resto de la app (<code>ContactLocalDataSource</code>). Nada fuera de <code>data/local</code> debería importar clases de Room directamente.</p>
+<h3 id="doc2-a-entidad-room-contactentitykt">A. Entidad Room (<code>ContactEntity.kt</code>)</h3>
+<p><strong>Por qué existe:</strong> Room necesita una clase anotada para saber cómo crear y leer la tabla SQL. <code>@Entity(tableName = "contacts")</code> le dice "crea una tabla llamada <code>contacts</code>" y cada propiedad se vuelve una columna. <code>@PrimaryKey(autoGenerate = true)</code> delega en SQLite la generación del <code>id</code>, para no tener que inventarlo a mano.</p>
+<p><strong>Por qué no es lo mismo que <code>Contact</code> (domain):</strong> porque si mañana cambias un detalle de la tabla (por ejemplo, agregar una columna interna de auditoría), no quieres que ese detalle "se filtre" al resto de la app. <code>ContactEntity</code> es la representación de la fila en SQLite; <code>Contact</code> es el concepto de negocio.</p>
+<p>Representa la estructura de la tabla <code>contacts</code> en SQLite:</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.data.local
+
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = &quot;contacts&quot;)
+data class ContactEntity(
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = 0,
+    val name: String,
+    val phone: String
+)
+</code></pre>
+<h3 id="doc2-b-interface-dao-contactdaokt">B. Interface DAO (<code>ContactDao.kt</code>)</h3>
+<p><strong>Por qué existe:</strong> el DAO (<em>Data Access Object</em>) es el único lugar del proyecto donde se escribe SQL. Room genera automáticamente la implementación de esta interfaz a partir de las anotaciones (<code>@Query</code>, <code>@Insert</code>, <code>@Query</code> para <code>DELETE</code>), así que nunca escribes el código que ejecuta esas consultas, solo la firma.</p>
+<p><strong>Qué sentido tiene:</strong> que <code>getAllContacts()</code> devuelva <code>Flow&lt;List&lt;ContactEntity&gt;&gt;</code> (en vez de una lista simple) significa que Room <strong>emite un nuevo valor automáticamente cada vez que la tabla cambia</strong>. Eso es lo que permite que, más adelante, el ViewModel "escuche" la tabla y la UI se actualice sola sin tener que refrescar manualmente.</p>
+<p><strong>¿Qué es <code>Flow</code> exactamente?</strong> Es un flujo de datos asíncrono de Kotlin: en vez de pedir un valor una sola vez (como hace una función <code>suspend fun getContacts(): List&lt;Contact&gt;</code>), un <code>Flow</code> representa <strong>una secuencia de valores en el tiempo</strong> a la que alguien se "suscribe" con <code>.collect { ... }</code>. Pensarlo como una especie de "radio" al que te sintonizas: no pides un dato puntual, sino que te quedas escuchando y te avisan cada vez que hay uno nuevo.</p>
+<p>Aplicado a <code>getAllContacts(): Flow&lt;List&lt;ContactEntity&gt;&gt;</code>:
+- Es un flujo <strong>frío</strong> (<em>cold</em>): no hace nada hasta que alguien lo colecciona (en este proyecto, el <code>ContactViewModel</code> en <code>observeContacts()</code>).
+- Room se encarga de <strong>emitir una nueva lista completa cada vez que la tabla <code>contacts</code> cambia</strong> (un <code>INSERT</code> o <code>DELETE</code>), sin que nadie tenga que pedirlo explícitamente ni volver a ejecutar la consulta a mano.
+- Se cancela solo: cuando el que está coleccionando desaparece (por ejemplo, la pantalla se cierra y <code>viewModelScope</code> se cancela), Room deja de emitir y libera los recursos.
+- Es la base de que toda la cadena Room → Repository → ViewModel → Compose sea <strong>reactiva</strong>: un cambio en SQLite se propaga solo hasta la UI, sin botones de "refrescar" ni <em>polling</em>.</p>
+<p>Define las operaciones de base de datos. Retorna <code>Flow</code> para observación reactiva:</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.data.local
+
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
+
+@Dao
+interface ContactDao {
+    @Query(&quot;SELECT * FROM contacts ORDER BY name ASC&quot;)
+    fun getAllContacts(): Flow&lt;List&lt;ContactEntity&gt;&gt;
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertContact(contact: ContactEntity)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertContacts(contacts: List&lt;ContactEntity&gt;)
+
+    @Query(&quot;DELETE FROM contacts WHERE id = :id&quot;)
+    suspend fun deleteContactById(id: Long)
+}
+</code></pre>
+<h3 id="doc2-c-base-de-datos-room-appdatabasekt">C. Base de Datos Room (<code>AppDatabase.kt</code>)</h3>
+<p><strong>Por qué existe:</strong> es el punto único de acceso a la base de datos física. <code>@Database(entities = [...], version = 1)</code> le dice a Room qué tablas debe crear y en qué versión de esquema está la base; <code>abstract fun contactDao()</code> expone el DAO para que Hilt pueda inyectarlo en otros lugares. Solo debe existir <strong>una instancia</strong> de esta clase en toda la app (por eso más adelante se inyecta como <code>@Singleton</code>).</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.data.local
+
+import androidx.room.Database
+import androidx.room.RoomDatabase
+
+@Database(entities = [ContactEntity::class], version = 1, exportSchema = false)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun contactDao(): ContactDao
+}
+</code></pre>
+<h3 id="doc2-d-fuente-de-datos-local-contactlocaldatasourcekt">D. Fuente de Datos Local (<code>ContactLocalDataSource.kt</code>)</h3>
+<p><strong>¿Por qué existe si ya tenemos el DAO?</strong> Esta es la pregunta obligada, porque en este proyecto <code>ContactLocalDataSourceImpl</code> solo <strong>delega 1:1</strong> cada método al <code>ContactDao</code> — no agrega ninguna lógica propia. La razón de que exista igual no es técnica sino de <strong>desacoplamiento de capas</strong>:</p>
+<ul>
+<li>El <code>ContactDao</code> es una interfaz de <strong>Room</strong>: sus tipos, anotaciones (<code>@Dao</code>, <code>@Query</code>, <code>@Insert</code>) y semántica solo tienen sentido porque Room las entiende. Si el <code>Repository</code> inyectara el DAO directamente, quedaría atado a Room.</li>
+<li>El <code>ContactLocalDataSource</code> es una interfaz <strong>neutral</strong>: dice "la fuente de datos local sabe <code>getContacts()</code>, <code>saveContact()</code>, etc.", sin mencionar Room para nada. La implementación (<code>ContactLocalDataSourceImpl</code>) es la <em>única</em> clase que conoce al DAO; todo lo demás (Repository, ViewModel, UI) ni se entera de que existe.</li>
+<li>En pruebas, se puede reemplazar <code>ContactLocalDataSource</code> por una implementación falsa sin tocar Room ni el dispositivo, al testear el Repository o el ViewModel de forma aislada.</li>
+<li>Si el día de mañana cambias Room por otra librería de persistencia, o agregas una segunda fuente local (por ejemplo, un cache en memoria), el cambio queda contenido en esta capa: el Repository no se entera.</li>
+</ul>
+<p><strong>Siendo honestos:</strong> en un proyecto de este tamaño, con un solo DAO y sin planes de cambiar de librería, esta capa hoy es principalmente <em>boilerplate</em> — no evita ningún bug ni agrega comportamiento. Es una decisión de <strong>Clean Architecture por consistencia y escalabilidad a futuro</strong>, no una necesidad técnica inmediata. Si el proyecto fuera a quedarse siempre así de simple, se podría inyectar el <code>ContactDao</code> directamente en el Repository sin perder nada hoy; la ventaja de mantener el <code>DataSource</code> aparece recién cuando el proyecto crece (más fuentes de datos, más pruebas, cambios de librería).</p>
+<p>Abstrae las llamadas directas al DAO:</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.data.local
+
+import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+
+interface ContactLocalDataSource {
+    fun getContacts(): Flow&lt;List&lt;ContactEntity&gt;&gt;
+    suspend fun saveContact(contact: ContactEntity)
+    suspend fun saveContacts(contacts: List&lt;ContactEntity&gt;)
+    suspend fun deleteContact(id: Long)
+}
+
+class ContactLocalDataSourceImpl @Inject constructor(
+    private val contactDao: ContactDao
+) : ContactLocalDataSource {
+    override fun getContacts(): Flow&lt;List&lt;ContactEntity&gt;&gt; = contactDao.getAllContacts()
+    override suspend fun saveContact(contact: ContactEntity) = contactDao.insertContact(contact)
+    override suspend fun saveContacts(contacts: List&lt;ContactEntity&gt;) = contactDao.insertContacts(contacts)
+    override suspend fun deleteContact(id: Long) = contactDao.deleteContactById(id)
+}
+</code></pre>
+<hr>
+<h2 id="doc2-4-paso-3-capa-remota-con-retrofit-y-okhttp-dataremote">🌐 4. Paso 3: Capa Remota con Retrofit y OkHttp (<code>data/remote</code>)</h2>
+<p>Igual que <code>data/local</code> concentra todo lo relacionado a Room, <code>data/remote</code> concentra todo lo relacionado a hablar con el servidor REST: el formato del JSON (<code>ContactDto</code>), el contrato HTTP (<code>ContactApiService</code>) y una capa fina que lo esconde del resto de la app (<code>ContactRemoteDataSource</code>).</p>
+<h3 id="doc2-a-dto-red-contactdtokt">A. DTO Red (<code>ContactDto.kt</code>)</h3>
+<p><strong>Por qué existe:</strong> un DTO (<em>Data Transfer Object</em>) representa el JSON tal cual lo entrega o espera la API, que casi nunca coincide 1:1 con el modelo de dominio (nombres de campo distintos, campos opcionales, campos que la app ignora). <code>@SerializedName</code> le dice a Gson cómo mapear cada campo del JSON a esta clase.</p>
+<p><strong>Por qué no reutilizar <code>Contact</code> directamente:</strong> porque si la API cambia el nombre de un campo o agrega uno nuevo, no quieres que ese cambio obligue a tocar el ViewModel o la UI. El DTO absorbe esos cambios; el dominio queda intacto.</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.data.remote
+
+import com.google.gson.annotations.SerializedName
+
+data class ContactDto(
+    @SerializedName(&quot;id&quot;) val id: Long? = null,
+    @SerializedName(&quot;name&quot;) val name: String,
+    @SerializedName(&quot;phone&quot;) val phone: String
+)
+</code></pre>
+<h3 id="doc2-b-servicio-api-retrofit-contactapiservicekt">B. Servicio API Retrofit (<code>ContactApiService.kt</code>)</h3>
+<p><strong>Por qué existe:</strong> es el contrato HTTP declarado como interfaz; Retrofit genera la implementación real (las llamadas de red) a partir de las anotaciones (<code>@GET</code>, <code>@POST</code>, <code>@Body</code>). Así nunca escribes a mano el código que arma la petición HTTP, solo describes el endpoint.</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.data.remote
+
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.POST
+
+interface ContactApiService {
+    @GET(&quot;contacts&quot;)
+    suspend fun getContacts(): List&lt;ContactDto&gt;
+
+    @POST(&quot;contacts&quot;)
+    suspend fun createContact(@Body contact: ContactDto): ContactDto
+}
+</code></pre>
+<h3 id="doc2-c-fuente-de-datos-remota-contactremotedatasourcekt">C. Fuente de Datos Remota (<code>ContactRemoteDataSource.kt</code>)</h3>
+<p><strong>Por qué existe:</strong> mismo motivo que <code>ContactLocalDataSource</code>, pero para la red: el <code>Repository</code> depende de la interfaz <code>ContactRemoteDataSource</code> ("la fuente de datos remota"), no de Retrofit directamente. Esto permite, por ejemplo, reemplazar Retrofit por otro cliente HTTP sin tocar el repositorio, o simularla en pruebas.</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.data.remote
+
+import javax.inject.Inject
+
+interface ContactRemoteDataSource {
+    suspend fun fetchContacts(): List&lt;ContactDto&gt;
+    suspend fun addContact(contact: ContactDto): ContactDto
+}
+
+class ContactRemoteDataSourceImpl @Inject constructor(
+    private val apiService: ContactApiService
+) : ContactRemoteDataSource {
+    override suspend fun fetchContacts(): List&lt;ContactDto&gt; = apiService.getContacts()
+    override suspend fun addContact(contact: ContactDto): ContactDto = apiService.createContact(contact)
+}
+</code></pre>
+<hr>
+<h2 id="doc2-5-paso-4-mapeadores-de-datos-datamappercontactmapperkt">🔄 5. Paso 4: Mapeadores de Datos (<code>data/mapper/ContactMapper.kt</code>)</h2>
+<p><strong>Por qué existe:</strong> ahora hay tres representaciones del mismo "contacto" (<code>ContactEntity</code> para Room, <code>ContactDto</code> para la red, <code>Contact</code> para el resto de la app) y alguien tiene que traducir entre ellas. Si esa traducción se hiciera dentro del DAO, del ApiService o del ViewModel, cada capa terminaría conociendo los detalles de las otras, rompiendo el desacople que se buscó al separarlas.</p>
+<p><strong>Qué sentido tiene:</strong> al ser funciones de extensión puras (<code>ContactEntity.toDomain()</code>, <code>Contact.toEntity()</code>, etc.), son fáciles de testear de forma aislada y concentran en un solo archivo toda la lógica de conversión. El <code>Repository</code> es el único que las usa.</p>
+<p>Funciones de extensión para convertir modelos entre capas sin acoplarlas:</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.data.mapper
+
+import com.rojas.consumodatos.data.local.ContactEntity
+import com.rojas.consumodatos.data.remote.ContactDto
+import com.rojas.consumodatos.domain.model.Contact
+
+fun ContactEntity.toDomain() = Contact(id = id, name = name, phone = phone)
+fun Contact.toEntity() = ContactEntity(id = id, name = name, phone = phone)
+fun ContactDto.toEntity() = ContactEntity(id = id ?: 0, name = name, phone = phone)
+fun Contact.toDto() = ContactDto(id = if (id == 0L) null else id, name = name, phone = phone)
+</code></pre>
+<hr>
+<h2 id="doc2-6-paso-5-capa-repositorio-domainrepository-y-datarepository">🏢 6. Paso 5: Capa Repositorio (<code>domain/repository</code> y <code>data/repository</code>)</h2>
+<p>El Repositorio es la pieza que decide, en la práctica, <strong>de dónde viene la verdad</strong>: aquí viven las reglas como "la UI siempre lee de Room" y "la red solo se usa para sincronizar/escribir", combinando <code>ContactLocalDataSource</code> y <code>ContactRemoteDataSource</code> detrás de una única API simple para el resto de la app (el patrón <em>Single Source of Truth</em>).</p>
+<h3 id="doc2-a-interfaz-del-repositorio-domainrepositorycontactrepositorykt">A. Interfaz del Repositorio (<code>domain/repository/ContactRepository.kt</code>)</h3>
+<p><strong>Por qué está en <code>domain</code> y no en <code>data</code>:</strong> porque el ViewModel (capa de presentación) solo debería depender de <em>qué</em> operaciones de negocio existen (<code>getContacts</code>, <code>addContact</code>, <code>syncRemoteContacts</code>, <code>deleteContact</code>), no de <em>cómo</em> están implementadas. Al vivir la interfaz en <code>domain</code>, el ViewModel puede ignorar por completo que detrás hay Room y Retrofit.</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.domain.repository
+
+import com.rojas.consumodatos.domain.model.Contact
+import kotlinx.coroutines.flow.Flow
+
+interface ContactRepository {
+    fun getContacts(): Flow&lt;List&lt;Contact&gt;&gt;
+    suspend fun addContact(name: String, phone: String)
+    suspend fun syncRemoteContacts()
+    suspend fun deleteContact(id: Long)
+}
+</code></pre>
+<h3 id="doc2-b-implementacion-datarepositorycontactrepositoryimplkt">B. Implementación (<code>data/repository/ContactRepositoryImpl.kt</code>)</h3>
+<p><strong>Cómo interactúa con las capas anteriores:</strong> recibe por constructor (inyectadas por Hilt) las dos fuentes de datos. <code>getContacts()</code> siempre lee de <code>localDataSource</code> y la convierte con el mapper — por eso la UI "ve" los datos de SQLite, no los de la red directamente. <code>syncRemoteContacts()</code> es la única operación que toca la red: descarga los contactos remotos y los <strong>guarda en Room</strong>; la UI se entera de ese cambio automáticamente porque sigue observando el mismo <code>Flow</code> de la base de datos local. Así, Room actúa como caché/fuente única y la red solo "alimenta" esa caché.</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.data.repository
+
+import com.rojas.consumodatos.data.local.ContactLocalDataSource
+import com.rojas.consumodatos.data.mapper.toDomain
+import com.rojas.consumodatos.data.mapper.toEntity
+import com.rojas.consumodatos.data.remote.ContactRemoteDataSource
+import com.rojas.consumodatos.domain.model.Contact
+import com.rojas.consumodatos.domain.repository.ContactRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
+import javax.inject.Inject
+
+class ContactRepositoryImpl @Inject constructor(
+    private val localDataSource: ContactLocalDataSource,
+    private val remoteDataSource: ContactRemoteDataSource
+) : ContactRepository {
+
+    override fun getContacts(): Flow&lt;List&lt;Contact&gt;&gt; {
+        return localDataSource.getContacts().map { entities -&gt;
+            entities.map { it.toDomain() }
+        }
+    }
+
+    override suspend fun addContact(name: String, phone: String) {
+        val contact = Contact(name = name, phone = phone)
+        localDataSource.saveContact(contact.toEntity())
+    }
+
+    override suspend fun syncRemoteContacts() {
+        runCatching {
+            val remoteDtos = remoteDataSource.fetchContacts()
+            val entities = remoteDtos.map { it.toEntity() }
+            localDataSource.saveContacts(entities)
+        }
+    }
+
+    override suspend fun deleteContact(id: Long) {
+        localDataSource.deleteContact(id)
+    }
+}
+</code></pre>
+<hr>
+<h2 id="doc2-7-paso-6-inversion-e-inyeccion-de-dependencias-di">💉 7. Paso 6: Inversión e Inyección de Dependencias (<code>di</code>)</h2>
+<p>Hasta aquí, casi todas las clases dependen de <strong>interfaces</strong> (<code>ContactLocalDataSource</code>, <code>ContactRemoteDataSource</code>, <code>ContactRepository</code>) y no de implementaciones concretas. Eso es intencional (Inversión de Dependencias), pero en algún lugar hay que decirle al sistema <strong>qué implementación real usar</strong> cuando algo pide, por ejemplo, un <code>ContactRepository</code>. Ese "algún lugar" son los módulos de Hilt en <code>di</code>: cada uno agrupa las dependencias de un área (base de datos, red, repositorios) y Hilt arma automáticamente el grafo de objetos, evitando que cada clase tenga que crear sus propias dependencias a mano (<code>new</code>/constructores manuales por todos lados).</p>
+<h3 id="doc2-a-modulo-de-base-de-datos-databasemodulekt">A. Módulo de Base de Datos (<code>DatabaseModule.kt</code>)</h3>
+<p><strong>Qué resuelve:</strong> cómo se construye la única instancia de <code>AppDatabase</code> (<code>Room.databaseBuilder(...)</code>, marcada <code>@Singleton</code> para que sea una sola en toda la app) y cómo se obtienen el <code>ContactDao</code> y el <code>ContactLocalDataSource</code> a partir de ella. Sin este módulo, Hilt no sabría cómo crear un <code>AppDatabase</code> cuando alguna clase lo pide en su constructor.</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.di
+
+import android.content.Context
+import androidx.room.Room
+import com.rojas.consumodatos.data.local.AppDatabase
+import com.rojas.consumodatos.data.local.ContactDao
+import com.rojas.consumodatos.data.local.ContactLocalDataSource
+import com.rojas.consumodatos.data.local.ContactLocalDataSourceImpl
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
+
+@Module
+@InstallIn(SingletonComponent::class)
+object DatabaseModule {
+
+    @Provides
+    @Singleton
+    fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
+        return Room.databaseBuilder(
+            context,
+            AppDatabase::class.java,
+            &quot;contacts_db&quot;
+        ).fallbackToDestructiveMigration().build()
+    }
+
+    @Provides
+    fun provideContactDao(db: AppDatabase): ContactDao = db.contactDao()
+
+    @Provides
+    @Singleton
+    fun provideContactLocalDataSource(impl: ContactLocalDataSourceImpl): ContactLocalDataSource = impl
+}
+</code></pre>
+<h3 id="doc2-b-modulo-de-red-networkmodulekt">B. Módulo de Red (<code>NetworkModule.kt</code>)</h3>
+<p><strong>Qué resuelve:</strong> cómo se arma el cliente HTTP (<code>OkHttpClient</code>, con el interceptor de logging para ver las peticiones en el Logcat durante desarrollo) y cómo se construye el <code>Retrofit</code>/<code>ContactApiService</code> a partir de él (URL base, convertidor JSON). Centraliza en un solo lugar la configuración de red, en vez de repetirla cada vez que se necesita hacer una llamada HTTP.</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.di
+
+import com.rojas.consumodatos.data.remote.ContactApiService
+import com.rojas.consumodatos.data.remote.ContactRemoteDataSource
+import com.rojas.consumodatos.data.remote.ContactRemoteDataSourceImpl
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
+
+@Module
+@InstallIn(SingletonComponent::class)
+object NetworkModule {
+
+    @Provides
+    @Singleton
+    fun provideOkHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder()
+            .addInterceptor(HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            })
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideContactApiService(okHttpClient: OkHttpClient): ContactApiService {
+        return Retrofit.Builder()
+            .baseUrl(&quot;https://jsonplaceholder.typicode.com/&quot;)
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ContactApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideContactRemoteDataSource(impl: ContactRemoteDataSourceImpl): ContactRemoteDataSource = impl
+}
+</code></pre>
+<h3 id="doc2-c-modulo-de-repositorio-repositorymodulekt">C. Módulo de Repositorio (<code>RepositoryModule.kt</code>)</h3>
+<p><strong>Qué resuelve:</strong> la "conexión" entre la interfaz <code>ContactRepository</code> (de <code>domain</code>) y su implementación <code>ContactRepositoryImpl</code> (de <code>data</code>). Usa <code>@Binds</code> en vez de <code>@Provides</code> porque es una asociación directa interfaz→implementación (más eficiente para Hilt que construir el objeto manualmente). Gracias a este módulo, cuando el <code>ContactViewModel</code> pide un <code>ContactRepository</code> en su constructor, Hilt sabe que debe entregarle una instancia de <code>ContactRepositoryImpl</code> ya armada con sus propias dependencias (las fuentes de datos local y remota).</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.di
+
+import com.rojas.consumodatos.data.repository.ContactRepositoryImpl
+import com.rojas.consumodatos.domain.repository.ContactRepository
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
+
+@Module
+@InstallIn(SingletonComponent::class)
+interface RepositoryModule {
+
+    @Binds
+    @Singleton
+    fun bindContactRepository(
+        impl: ContactRepositoryImpl
+    ): ContactRepository
+}
+</code></pre>
+<hr>
+<h2 id="doc2-8-paso-7-capa-de-presentacion-uicontact">📱 8. Paso 7: Capa de Presentación (<code>ui/contact</code>)</h2>
+<p>Esta capa implementa <strong>MVVM</strong>: el <code>ContactViewModel</code> expone un único estado observable (<code>ContactUiState</code>) que la <code>ContactScreen</code> solo lee y dibuja; la pantalla nunca decide por su cuenta qué mostrar, solo reacciona al estado actual. Toda interacción del usuario (escribir un nombre, tocar "Guardar") se traduce en una llamada a una función del ViewModel, nunca en lógica dentro de la propia pantalla.</p>
+<h3 id="doc2-a-estado-de-la-ui-contactuistatekt">A. Estado de la UI (<code>ContactUiState.kt</code>)</h3>
+<p><strong>Por qué existe:</strong> en vez de que la <code>Screen</code> maneje varias variables sueltas (lista, texto del input, si está cargando, si hay error), todo el estado visual se agrupa en <strong>una sola clase inmutable</strong>. Esto hace imposible que la UI quede en un estado inconsistente a medias, y hace trivial ver, de un vistazo, todo lo que la pantalla puede mostrar.</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.ui.contact
+
+import com.rojas.consumodatos.domain.model.Contact
+
+data class ContactUiState(
+    val contacts: List&lt;Contact&gt; = emptyList(),
+    val nameInput: String = &quot;&quot;,
+    val phoneInput: String = &quot;&quot;,
+    val isLoading: Boolean = false,
+    val errorMessage: String? = null
+)
+</code></pre>
+<h3 id="doc2-b-viewmodel-contactviewmodelkt">B. ViewModel (<code>ContactViewModel.kt</code>)</h3>
+<p><strong>Por qué existe y cómo interactúa:</strong> el ViewModel es el puente entre la UI y el <code>ContactRepository</code>. En <code>init</code>/<code>observeContacts()</code> se suscribe al <code>Flow</code> del repositorio y, cada vez que Room emite una nueva lista, actualiza <code>_uiState</code> — eso es lo que hace que la lista en pantalla se refresque sola sin que nadie llame a un "refrescar" manual. <code>addContact()</code> y <code>deleteContact()</code> delegan en el repositorio y sobreviven a rotaciones de pantalla gracias a <code>viewModelScope</code>. <code>@HiltViewModel</code> le dice a Hilt que puede inyectar el <code>ContactRepository</code> automáticamente al construirlo.</p>
+<p><strong>Por qué <code>MutableStateFlow</code>/<code>StateFlow</code> separados:</strong> <code>_uiState</code> (mutable, privado) es lo único que el ViewModel puede modificar; <code>uiState</code> (de solo lectura, público) es lo único que la <code>Screen</code> puede observar. Así se evita que la UI "tramposeé" y cambie el estado sin pasar por la lógica del ViewModel.</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.ui.contact
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.rojas.consumodatos.domain.repository.ContactRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltViewModel
+class ContactViewModel @Inject constructor(
+    private val repository: ContactRepository
+) : ViewModel() {
+
+    private val _uiState = MutableStateFlow(ContactUiState())
+    val uiState: StateFlow&lt;ContactUiState&gt; = _uiState.asStateFlow()
+
+    init {
+        observeContacts()
+    }
+
+    private fun observeContacts() {
+        viewModelScope.launch {
+            _uiState.update { it.copy(isLoading = true) }
+            repository.getContacts()
+                .catch { e -&gt;
+                    _uiState.update { it.copy(isLoading = false, errorMessage = e.message) }
+                }
+                .collect { list -&gt;
+                    _uiState.update { it.copy(contacts = list, isLoading = false) }
+                }
+        }
+    }
+
+    fun onNameChanged(name: String) {
+        _uiState.update { it.copy(nameInput = name) }
+    }
+
+    fun onPhoneChanged(phone: String) {
+        _uiState.update { it.copy(phoneInput = phone) }
+    }
+
+    fun addContact() {
+        val name = _uiState.value.nameInput.trim()
+        val phone = _uiState.value.phoneInput.trim()
+
+        if (name.isBlank() || phone.isBlank()) return
+
+        viewModelScope.launch {
+            repository.addContact(name, phone)
+            _uiState.update { it.copy(nameInput = &quot;&quot;, phoneInput = &quot;&quot;) }
+        }
+    }
+
+    fun deleteContact(id: Long) {
+        viewModelScope.launch {
+            repository.deleteContact(id)
+        }
+    }
+}
+</code></pre>
+<h3 id="doc2-c-vista-en-jetpack-compose-contactscreenkt">C. Vista en Jetpack Compose (<code>ContactScreen.kt</code>)</h3>
+<p><strong>Por qué existe y cómo interactúa:</strong> es la única clase que "sabe dibujar" la pantalla. Lee <code>uiState</code> con <code>collectAsStateWithLifecycle()</code> (que se desuscribe automáticamente cuando la pantalla no está visible, evitando fugas de memoria) y, por cada campo de <code>ContactUiState</code>, decide qué mostrar (carga, lista vacía, lista de contactos). Cada acción del usuario (<code>onValueChange</code>, <code>onClick</code>) llama directamente a una función del <code>viewModel</code> (<code>viewModel::onNameChanged</code>, <code>viewModel::addContact</code>) — la pantalla no contiene ninguna regla de negocio, solo layout y delegación.</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.ui.contact
+
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+
+@Composable
+fun ContactScreen(
+    viewModel: ContactViewModel,
+    modifier: Modifier = Modifier
+) {
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        Text(
+            text = &quot;Directorio Telefónico&quot;,
+            style = MaterialTheme.typography.headlineMedium,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+
+        // Formulario de Ingreso
+        OutlinedTextField(
+            value = uiState.nameInput,
+            onValueChange = viewModel::onNameChanged,
+            label = { Text(&quot;Nombre&quot;) },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        OutlinedTextField(
+            value = uiState.phoneInput,
+            onValueChange = viewModel::onPhoneChanged,
+            label = { Text(&quot;Teléfono&quot;) },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        Button(
+            onClick = viewModel::addContact,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(&quot;Guardar Contacto en Room&quot;)
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Lista de Contactos
+        if (uiState.isLoading) {
+            CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
+        } else if (uiState.contacts.isEmpty()) {
+            Text(
+                text = &quot;No hay contactos guardados.&quot;,
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.align(Alignment.CenterHorizontally)
+            )
+        } else {
+            LazyColumn(
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                items(uiState.contacts, key = { it.id }) { contact -&gt;
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(16.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(text = contact.name, style = MaterialTheme.typography.titleMedium)
+                                Text(text = contact.phone, style = MaterialTheme.typography.bodyMedium)
+                            }
+                            TextButton(onClick = { viewModel.deleteContact(contact.id) }) {
+                                Text(&quot;Eliminar&quot;, color = MaterialTheme.colorScheme.error)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<hr>
+<h2 id="doc2-9-paso-8-inicializacion-y-punto-de-entrada">⚡ 9. Paso 8: Inicialización y Punto de Entrada</h2>
+<p>Estos tres archivos son el "cableado" final que hace que todo lo anterior cobre vida al abrir la app.</p>
+<h3 id="doc2-a-application-consumodatosappkt">A. Application (<code>ConsumoDatosApp.kt</code>)</h3>
+<p><strong>Por qué existe:</strong> Hilt necesita una clase <code>Application</code> anotada con <code>@HiltAndroidApp</code> para generar, en tiempo de compilación, el contenedor de dependencias raíz de toda la app (de donde salen las instancias <code>@Singleton</code> como <code>AppDatabase</code> o <code>ContactRepositoryImpl</code>). Sin esta clase, ningún <code>@Inject</code> ni <code>@HiltViewModel</code> del proyecto funcionaría.</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos
+
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class ConsumoDatosApp : Application()
+</code></pre>
+<h3 id="doc2-b-manifest-androidmanifestxml">B. Manifest (<code>AndroidManifest.xml</code>)</h3>
+<p><strong>Por qué existe:</strong> el sistema operativo Android necesita saber, antes de arrancar cualquier pantalla, cuál es la clase <code>Application</code> de la app (<code>android:name=".ConsumoDatosApp"</code>). Si no se registra aquí, Android usaría la <code>Application</code> por defecto y el contenedor de Hilt nunca se crearía.</p>
+<p>Registra la clase <code>ConsumoDatosApp</code>:</p>
+<pre><code class="language-xml">&lt;application
+    android:name=&quot;.ConsumoDatosApp&quot;
+    ... &gt;
+&lt;/application&gt;
+</code></pre>
+<h3 id="doc2-c-activity-mainactivitykt">C. Activity (<code>MainActivity.kt</code>)</h3>
+<p><strong>Por qué existe y cómo cierra el círculo:</strong> es el punto de entrada visual: <code>@AndroidEntryPoint</code> habilita la inyección de Hilt dentro de la Activity (necesario para que <code>hiltViewModel()</code> funcione más abajo). <code>hiltViewModel()</code> le pide a Hilt un <code>ContactViewModel</code> ya construido con su <code>ContactRepository</code> inyectado, y ese ViewModel se lo pasa a <code>ContactScreen</code>. Con esto se cierra el círculo completo: <code>MainActivity</code> → crea/obtiene <code>ContactViewModel</code> → éste observa <code>ContactRepository</code> → que combina Room y Retrofit → y cualquier cambio en esa cadena termina re-dibujando <code>ContactScreen</code> automáticamente.</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.rojas.consumodatos.ui.contact.ContactScreen
+import com.rojas.consumodatos.ui.theme.ConsumoDatosTheme
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            ConsumoDatosTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding -&gt;
+                    ContactScreen(
+                        viewModel = hiltViewModel(),
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<hr>
+<h2 id="doc2-10-como-interactuan-todas-las-capas-juntas">🔗 10. Cómo interactúan todas las capas juntas</h2>
+<p>Siguiendo el ejemplo de <strong>agregar un contacto nuevo</strong>, así recorre el sistema una sola acción del usuario, capa por capa:</p>
+<ol>
+<li>El usuario escribe en los campos y toca <strong>"Guardar Contacto en Room"</strong> en <code>ContactScreen</code>. Esto llama a <code>viewModel::addContact</code> — la Screen no sabe nada de Room ni de reglas de negocio, solo delega.</li>
+<li><code>ContactViewModel.addContact()</code> valida que los campos no estén vacíos y llama a <code>repository.addContact(name, phone)</code>. El ViewModel no sabe si eso termina en SQLite, en un archivo o en la red: solo conoce la interfaz <code>ContactRepository</code>.</li>
+<li><code>ContactRepositoryImpl.addContact()</code> construye un <code>Contact</code> (modelo de dominio), lo convierte a <code>ContactEntity</code> con el mapper (<code>toEntity()</code>) y se lo pasa a <code>ContactLocalDataSource.saveContact(...)</code>.</li>
+<li><code>ContactLocalDataSourceImpl</code> delega en <code>ContactDao.insertContact(...)</code>, que es donde Room finalmente ejecuta el <code>INSERT</code> real en SQLite.</li>
+<li>Como <code>ContactDao.getAllContacts()</code> devuelve un <code>Flow</code>, Room emite automáticamente la lista actualizada apenas se confirma el <code>INSERT</code>, sin que nadie se lo pida explícitamente.</li>
+<li><code>ContactViewModel</code>, que está coleccionando ese <code>Flow</code> desde <code>observeContacts()</code>, recibe la nueva lista y actualiza <code>_uiState</code>.</li>
+<li><code>ContactScreen</code>, que observa <code>uiState</code> con <code>collectAsStateWithLifecycle()</code>, se recompone automáticamente y muestra el nuevo contacto en la <code>LazyColumn</code>.</li>
+</ol>
+<h3 id="doc2-diagrama-del-input-a-la-base-de-datos-guardar">Diagrama: del input a la base de datos (guardar)</h3>
+<details class="diagram-source"><summary>Ver definición del diagrama original</summary><pre><code>sequenceDiagram
+    participant UI as ContactScreen
+    participant VM as ContactViewModel
+    participant Repo as ContactRepositoryImpl
+    participant DS as ContactLocalDataSource
+    participant DAO as ContactDao
+    participant DB as Room (SQLite)
+
+    UI-&gt;&gt;VM: viewModel.addContact()&lt;br/&gt;(click &quot;Guardar Contacto en Room&quot;)
+    VM-&gt;&gt;Repo: addContact(name, phone)
+    Repo-&gt;&gt;Repo: Contact → ContactEntity (mapper toEntity())
+    Repo-&gt;&gt;DS: saveContact(entity)
+    DS-&gt;&gt;DAO: insertContact(entity)
+    DAO-&gt;&gt;DB: INSERT INTO contacts (...)
+    DB--&gt;&gt;DAO: fila insertada
+    Note over DB,VM: Room detecta el cambio en la tabla&lt;br/&gt;y vuelve a emitir el Flow de getAllContacts()
+    DB--&gt;&gt;VM: Flow&lt;List&lt;ContactEntity&gt;&gt; actualizado
+    VM-&gt;&gt;VM: _uiState.update { contacts = nuevaLista }
+    VM--&gt;&gt;UI: uiState (StateFlow) recompone la pantalla
+</code></pre></details>
+<p>Todo esto ocurre sin que ninguna capa conozca los detalles internos de la siguiente: la Screen no sabe de Room, el ViewModel no sabe de SQL, el Repository no sabe de Compose. Hilt (<code>di</code>) es quien, al arrancar la app, conecta todas las implementaciones concretas detrás de cada interfaz para que esta cadena exista en tiempo de ejecución.</p>
+<p>El mismo patrón aplica para <code>syncRemoteContacts()</code>, solo que ahí el Repository primero llama a <code>ContactRemoteDataSource.fetchContacts()</code> (Retrofit → API) y guarda el resultado en <code>ContactLocalDataSource</code> — la UI sigue sin enterarse de que hubo una llamada de red: solo ve que, en algún momento, la tabla local cambió.</p>
+<h3 id="doc2-diagrama-de-la-base-de-datos-de-vuelta-a-la-ui-cargargetall">Diagrama: de la base de datos de vuelta a la UI (cargar/<code>getAll</code>)</h3>
+<p>Este es el camino inverso: qué pasa cuando <code>ContactScreen</code> se abre por primera vez y necesita mostrar los contactos ya guardados.</p>
+<details class="diagram-source"><summary>Ver definición del diagrama original</summary><pre><code>sequenceDiagram
+    participant UI as ContactScreen
+    participant VM as ContactViewModel
+    participant Repo as ContactRepositoryImpl
+    participant DS as ContactLocalDataSource
+    participant DAO as ContactDao
+    participant DB as Room (SQLite)
+
+    Note over VM: init { observeContacts() }
+    VM-&gt;&gt;Repo: repository.getContacts()
+    Repo-&gt;&gt;DS: getContacts()
+    DS-&gt;&gt;DAO: getAllContacts()
+    DAO-&gt;&gt;DB: SELECT * FROM contacts ORDER BY name ASC
+    DB--&gt;&gt;DAO: Flow&lt;List&lt;ContactEntity&gt;&gt;
+    DAO--&gt;&gt;DS: Flow&lt;List&lt;ContactEntity&gt;&gt;
+    DS--&gt;&gt;Repo: Flow&lt;List&lt;ContactEntity&gt;&gt;
+    Repo-&gt;&gt;Repo: map { it.toDomain() }&lt;br/&gt;(ContactEntity → Contact)
+    Repo--&gt;&gt;VM: Flow&lt;List&lt;Contact&gt;&gt;
+    VM-&gt;&gt;VM: collect { _uiState.update { contacts = list } }
+    VM--&gt;&gt;UI: uiState (StateFlow) con la lista
+    UI-&gt;&gt;UI: recomposición → LazyColumn dibuja los contactos
+
+    Note over DB,UI: Si la tabla cambia después (otro INSERT/DELETE),&lt;br/&gt;Room re-emite el Flow y los pasos 4-9 se repiten solos,&lt;br/&gt;sin que nadie vuelva a llamar getContacts() manualmente.
+</code></pre></details></article>
+<article id="document-3" class="document" hidden data-title="3. Tareas y navegación"><p class="source">Fuente: docs/guia-room-2.md</p><h1 id="doc3-guia-paso-a-paso-2-enrutamiento-de-vistas-navigation-compose-y-gestion-de-tareas-room-hilt">Guía Paso a Paso 2: Enrutamiento de Vistas (Navigation Compose) y Gestión de Tareas (Room + Hilt)</h1>
+<p>Esta guía complementa la guía previa de Room y explica cómo implementar <strong>Navegación/Enrutamiento de Vistas</strong> en Jetpack Compose (equivalente a <code>wouter</code> en React) y construir una segunda funcionalidad: <strong>Gestión de Tareas (ToDo List)</strong>, por ahora solo con <strong>crear</strong> y <strong>listar</strong> tareas (<code>id</code>, <code>nombre</code>, <code>estado</code> booleano de completada).</p>
+<hr>
+<h2 id="doc3-1-enrutamiento-de-vistas-navigation-compose-vs-wouter-react">🚦 1. Enrutamiento de Vistas: Navigation Compose vs Wouter (React)</h2>
+<p>En el desarrollo web con React, librerías como <strong><code>wouter</code></strong> permiten alternar entre componentes según la URL actual:</p>
+<pre><code class="language-jsx">// Ejemplo equivalente en React (wouter)
+import { Route, Switch, Link } from &quot;wouter&quot;;
+
+&lt;Switch&gt;
+  &lt;Route path=&quot;/contacts&quot; component={ContactScreen} /&gt;
+  &lt;Route path=&quot;/tasks&quot; component={TaskScreen} /&gt;
+&lt;/Switch&gt;
+</code></pre>
+<p>En <strong>Android Jetpack Compose</strong>, la solución estándar equivalente recomendada por Google es <strong><code>Navigation Compose</code></strong> (<code>androidx.navigation:navigation-compose</code>).</p>
+<h3 id="doc3-analogias-de-conceptos">Analogías de Conceptos</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">React (<code>wouter</code>)</th>
+<th style="text-align: left;">Android Compose (<code>Navigation Compose</code>)</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>useLocation()</code> / <code>history.push("/tasks")</code></td>
+<td style="text-align: left;"><code>navController.navigate("tasks")</code></td>
+<td style="text-align: left;">Cambiar de vista programáticamente</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;Switch&gt;</code></td>
+<td style="text-align: left;"><code>NavHost(navController, startDestination)</code></td>
+<td style="text-align: left;">Contenedor principal de rutas</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;Route path="/tasks"&gt;</code></td>
+<td style="text-align: left;"><code>composable("tasks") { TaskScreen(...) }</code></td>
+<td style="text-align: left;">Declaración de una pantalla/ruta</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;Link to="/tasks"&gt;</code></td>
+<td style="text-align: left;"><code>Button(onClick = { navController.navigate("tasks") })</code></td>
+<td style="text-align: left;">Elemento UI para navegar</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="doc3-2-dependencia-de-gradle">🛠️ 2. Dependencia de Gradle</h2>
+<p>Se incluye en <code>app/build.gradle.kts</code> (ya agregada en <code>gradle/libs.versions.toml</code> como <code>androidx-navigation-compose</code>):</p>
+<pre><code class="language-kotlin">dependencies {
+    implementation(libs.androidx.navigation.compose) // Version 2.8.5
+}
+</code></pre>
+<hr>
+<h2 id="doc3-3-modelo-de-dominio-domainmodeltaskkt">📋 3. Modelo de Dominio (<code>domain/model/Task.kt</code>)</h2>
+<p>Entidad pura del dominio para representar la tarea, solo con los campos necesarios por ahora:</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.domain.model
+
+data class Task(
+    val id: Long = 0,
+    val name: String,
+    val isCompleted: Boolean = false
+)
+</code></pre>
+<hr>
+<h2 id="doc3-4-capa-local-de-tareas-datalocal">💾 4. Capa Local de Tareas (<code>data/local</code>)</h2>
+<h3 id="doc3-a-entidad-room-taskentitykt">A. Entidad Room (<code>TaskEntity.kt</code>)</h3>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.data.local
+
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = &quot;tasks&quot;)
+data class TaskEntity(
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = 0,
+    val name: String,
+    val isCompleted: Boolean = false
+)
+</code></pre>
+<h3 id="doc3-b-dao-taskdaokt">B. DAO (<code>TaskDao.kt</code>)</h3>
+<p>Por ahora solo las operaciones de <strong>crear</strong> e <strong>insertar</strong>/<strong>listar</strong>:</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.data.local
+
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
+
+@Dao
+interface TaskDao {
+    @Query(&quot;SELECT * FROM tasks ORDER BY id DESC&quot;)
+    fun getAllTasks(): Flow&lt;List&lt;TaskEntity&gt;&gt;
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertTask(task: TaskEntity)
+}
+</code></pre>
+<h3 id="doc3-c-actualizacion-de-appdatabasekt">C. Actualización de <code>AppDatabase.kt</code></h3>
+<p>Se añade <code>TaskEntity</code> a la lista de entidades de Room:</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.data.local
+
+import androidx.room.Database
+import androidx.room.RoomDatabase
+
+@Database(
+    entities = [ContactEntity::class, TaskEntity::class],
+    version = 2,
+    exportSchema = false
+)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun contactDao(): ContactDao
+    abstract fun taskDao(): TaskDao
+}
+</code></pre>
+<h3 id="doc3-d-fuente-de-datos-local-tasklocaldatasourcekt">D. Fuente de Datos Local (<code>TaskLocalDataSource.kt</code>)</h3>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.data.local
+
+import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+
+interface TaskLocalDataSource {
+    fun getTasks(): Flow&lt;List&lt;TaskEntity&gt;&gt;
+    suspend fun saveTask(task: TaskEntity)
+}
+
+class TaskLocalDataSourceImpl @Inject constructor(
+    private val taskDao: TaskDao
+) : TaskLocalDataSource {
+    override fun getTasks(): Flow&lt;List&lt;TaskEntity&gt;&gt; = taskDao.getAllTasks()
+    override suspend fun saveTask(task: TaskEntity) = taskDao.insertTask(task)
+}
+</code></pre>
+<hr>
+<h2 id="doc3-5-mapeador-de-datos-datamappertaskmapperkt">🔄 5. Mapeador de Datos (<code>data/mapper/TaskMapper.kt</code>)</h2>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.data.mapper
+
+import com.rojas.consumodatos.data.local.TaskEntity
+import com.rojas.consumodatos.domain.model.Task
+
+fun TaskEntity.toDomain() = Task(id = id, name = name, isCompleted = isCompleted)
+fun Task.toEntity() = TaskEntity(id = id, name = name, isCompleted = isCompleted)
+</code></pre>
+<hr>
+<h2 id="doc3-6-repositorio-domainrepository-y-datarepository">🏢 6. Repositorio (<code>domain/repository</code> y <code>data/repository</code>)</h2>
+<h3 id="doc3-interfaz-domainrepositorytaskrepositorykt">Interfaz (<code>domain/repository/TaskRepository.kt</code>)</h3>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.domain.repository
+
+import com.rojas.consumodatos.domain.model.Task
+import kotlinx.coroutines.flow.Flow
+
+interface TaskRepository {
+    fun getTasks(): Flow&lt;List&lt;Task&gt;&gt;
+    suspend fun addTask(name: String)
+}
+</code></pre>
+<h3 id="doc3-implementacion-datarepositorytaskrepositoryimplkt">Implementación (<code>data/repository/TaskRepositoryImpl.kt</code>)</h3>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.data.repository
+
+import com.rojas.consumodatos.data.local.TaskLocalDataSource
+import com.rojas.consumodatos.data.mapper.toDomain
+import com.rojas.consumodatos.data.mapper.toEntity
+import com.rojas.consumodatos.domain.model.Task
+import com.rojas.consumodatos.domain.repository.TaskRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
+import javax.inject.Inject
+
+class TaskRepositoryImpl @Inject constructor(
+    private val localDataSource: TaskLocalDataSource
+) : TaskRepository {
+
+    override fun getTasks(): Flow&lt;List&lt;Task&gt;&gt; {
+        return localDataSource.getTasks().map { entities -&gt;
+            entities.map { it.toDomain() }
+        }
+    }
+
+    override suspend fun addTask(name: String) {
+        val task = Task(name = name, isCompleted = false)
+        localDataSource.saveTask(task.toEntity())
+    }
+}
+</code></pre>
+<hr>
+<h2 id="doc3-7-configuracion-hilt-di">💉 7. Configuración Hilt (<code>di</code>)</h2>
+<p>Añade los proveedores de <code>TaskDao</code>, <code>TaskLocalDataSource</code> y la interfaz del <code>TaskRepository</code> en los módulos existentes:</p>
+<pre><code class="language-kotlin">// En DatabaseModule.kt
+@Provides
+fun provideTaskDao(db: AppDatabase): TaskDao = db.taskDao()
+
+@Provides
+@Singleton
+fun provideTaskLocalDataSource(impl: TaskLocalDataSourceImpl): TaskLocalDataSource = impl
+
+// En RepositoryModule.kt
+@Binds
+@Singleton
+abstract fun bindTaskRepository(impl: TaskRepositoryImpl): TaskRepository
+</code></pre>
+<hr>
+<h2 id="doc3-8-viewmodel-y-ui-de-tareas-uitask">📱 8. ViewModel y UI de Tareas (<code>ui/task</code>)</h2>
+<h3 id="doc3-a-estado-taskuistatekt">A. Estado (<code>TaskUiState.kt</code>)</h3>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.ui.task
+
+import com.rojas.consumodatos.domain.model.Task
+
+data class TaskUiState(
+    val tasks: List&lt;Task&gt; = emptyList(),
+    val taskNameInput: String = &quot;&quot;,
+    val isLoading: Boolean = false
+)
+</code></pre>
+<h3 id="doc3-b-viewmodel-taskviewmodelkt">B. ViewModel (<code>TaskViewModel.kt</code>)</h3>
+<p>Solo expone <strong>crear</strong> (<code>addTask</code>) y observar/<strong>listar</strong> (<code>observeTasks</code>):</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.ui.task
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.rojas.consumodatos.domain.repository.TaskRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltViewModel
+class TaskViewModel @Inject constructor(
+    private val repository: TaskRepository
+) : ViewModel() {
+
+    private val _uiState = MutableStateFlow(TaskUiState())
+    val uiState: StateFlow&lt;TaskUiState&gt; = _uiState.asStateFlow()
+
+    init {
+        observeTasks()
+    }
+
+    private fun observeTasks() {
+        viewModelScope.launch {
+            _uiState.update { it.copy(isLoading = true) }
+            repository.getTasks().collect { list -&gt;
+                _uiState.update { it.copy(tasks = list, isLoading = false) }
+            }
+        }
+    }
+
+    fun onTaskNameChanged(name: String) {
+        _uiState.update { it.copy(taskNameInput = name) }
+    }
+
+    fun addTask() {
+        val name = _uiState.value.taskNameInput.trim()
+        if (name.isBlank()) return
+
+        viewModelScope.launch {
+            repository.addTask(name)
+            _uiState.update { it.copy(taskNameInput = &quot;&quot;) }
+        }
+    }
+}
+</code></pre>
+<h3 id="doc3-c-vista-compose-de-tareas-taskscreenkt">C. Vista Compose de Tareas (<code>TaskScreen.kt</code>)</h3>
+<p>Formulario para <strong>crear</strong> una tarea y lista para <strong>listar</strong> las existentes, mostrando su estado (<code>isCompleted</code>) de forma solo lectura por ahora:</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.ui.task
+
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+
+@Composable
+fun TaskScreen(
+    viewModel: TaskViewModel,
+    modifier: Modifier = Modifier
+) {
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        Text(
+            text = &quot;Lista de Tareas&quot;,
+            style = MaterialTheme.typography.headlineMedium,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            OutlinedTextField(
+                value = uiState.taskNameInput,
+                onValueChange = viewModel::onTaskNameChanged,
+                label = { Text(&quot;Nueva Tarea&quot;) },
+                modifier = Modifier.weight(1f)
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Button(onClick = viewModel::addTask) {
+                Text(&quot;Agregar&quot;)
+            }
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        if (uiState.isLoading) {
+            CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
+        } else if (uiState.tasks.isEmpty()) {
+            Text(&quot;No hay tareas registradas.&quot;, modifier = Modifier.align(Alignment.CenterHorizontally))
+        } else {
+            LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                items(uiState.tasks, key = { it.id }) { task -&gt;
+                    Card(modifier = Modifier.fillMaxWidth()) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(12.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text(
+                                text = task.name,
+                                style = MaterialTheme.typography.bodyLarge
+                            )
+                            Text(
+                                text = if (task.isCompleted) &quot;Completada&quot; else &quot;Pendiente&quot;,
+                                style = MaterialTheme.typography.labelMedium,
+                                color = if (task.isCompleted)
+                                    MaterialTheme.colorScheme.primary
+                                else
+                                    MaterialTheme.colorScheme.outline
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p>Más adelante se puede agregar la capacidad de marcar una tarea como completada o eliminarla (<code>updateTaskStatus</code> / <code>deleteTask</code> en el DAO), pero por ahora el alcance es solo <strong>crear</strong> y <strong>listar</strong>.</p>
+</blockquote>
+<hr>
+<h2 id="doc3-9-router-principal-con-navigation-compose-uinavigationappnavigationkt">🚦 9. Router Principal con Navigation Compose (<code>ui/navigation/AppNavigation.kt</code>)</h2>
+<p>Aquí se configura el enrutador que conmuta entre la pantalla de <strong>Contactos</strong> y la pantalla de <strong>Tareas</strong>:</p>
+<pre><code class="language-kotlin">package com.rojas.consumodatos.ui.navigation
+
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import com.rojas.consumodatos.ui.contact.ContactScreen
+import com.rojas.consumodatos.ui.task.TaskScreen
+
+sealed class Screen(val route: String, val title: String) {
+    object Contacts : Screen(&quot;contacts&quot;, &quot;Contactos&quot;)
+    object Tasks : Screen(&quot;tasks&quot;, &quot;Tareas&quot;)
+}
+
+@Composable
+fun AppNavigation() {
+    val navController = rememberNavController()
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
+
+    val items = listOf(Screen.Contacts, Screen.Tasks)
+
+    Scaffold(
+        bottomBar = {
+            NavigationBar {
+                items.forEach { screen -&gt;
+                    NavigationBarItem(
+                        selected = currentRoute == screen.route,
+                        onClick = {
+                            if (currentRoute != screen.route) {
+                                navController.navigate(screen.route) {
+                                    popUpTo(navController.graph.startDestinationId) { saveState = true }
+                                    launchSingleTop = true
+                                    restoreState = true
+                                }
+                            }
+                        },
+                        label = { Text(screen.title) },
+                        icon = { Text(screen.title.take(1)) }
+                    )
+                }
+            }
+        }
+    ) { innerPadding -&gt;
+        NavHost(
+            navController = navController,
+            startDestination = Screen.Contacts.route,
+            modifier = Modifier.padding(innerPadding)
+        ) {
+            composable(Screen.Contacts.route) {
+                ContactScreen(viewModel = hiltViewModel())
+            }
+            composable(Screen.Tasks.route) {
+                TaskScreen(viewModel = hiltViewModel())
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="doc3-uso-en-mainactivitykt">Uso en <code>MainActivity.kt</code></h3>
+<p>Reemplaza la llamada directa a <code>ContactScreen</code> por <code>AppNavigation()</code> para que ambas vistas queden enrutadas:</p>
+<pre><code class="language-kotlin">setContent {
+    ConsumoDatosTheme {
+        AppNavigation()
+    }
+}
+</code></pre></article>
+<article id="document-4" class="document" hidden data-title="4. Implementación"><p class="source">Fuente: docs/implementacion.md</p><h1 id="doc4-detalle-de-implementacion">Detalle de implementación</h1>
+<h2 id="doc4-fuente-y-alcance">Fuente y alcance</h2>
+<p>El código materializa <code>guia-room.md</code> y después las ampliaciones de <code>guia-room-2.md</code>. Se conservan sus modelos, operaciones, textos y estructura por capas. La segunda guía reemplaza el esquema de Room por la versión 2 y el acceso directo a contactos por <code>AppNavigation</code>.</p>
+<h2 id="doc4-organizacion">Organización</h2>
+<p>La raíz de código es <code>app/src/main/java/com/rojas/consumodatos/</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Carpeta o archivo</th>
+<th>Responsabilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>domain/model/Contact.kt</code>, <code>Task.kt</code></td>
+<td>Modelos sin anotaciones de persistencia o red</td>
+</tr>
+<tr>
+<td><code>domain/repository/</code></td>
+<td>Contratos que consume la presentación</td>
+</tr>
+<tr>
+<td><code>data/local/ContactEntity.kt</code>, <code>TaskEntity.kt</code></td>
+<td>Tablas <code>contacts</code> y <code>tasks</code>, con identificador autogenerado</td>
+</tr>
+<tr>
+<td><code>data/local/ContactDao.kt</code>, <code>TaskDao.kt</code></td>
+<td>Consultas SQL e inserciones suspendidas</td>
+</tr>
+<tr>
+<td><code>data/local/AppDatabase.kt</code></td>
+<td>Base Room versión 2 con ambos DAO</td>
+</tr>
+<tr>
+<td><code>data/local/*LocalDataSource.kt</code></td>
+<td>Interfaces e implementaciones que delegan en los DAO</td>
+</tr>
+<tr>
+<td><code>data/remote/</code></td>
+<td>DTO de contacto, contrato HTTP y fuente remota</td>
+</tr>
+<tr>
+<td><code>data/mapper/</code></td>
+<td>Conversiones entre entidades, dominio y DTO</td>
+</tr>
+<tr>
+<td><code>data/repository/</code></td>
+<td>Implementaciones de los contratos del dominio</td>
+</tr>
+<tr>
+<td><code>di/DatabaseModule.kt</code></td>
+<td>Base de datos, DAO y fuentes locales</td>
+</tr>
+<tr>
+<td><code>di/NetworkModule.kt</code></td>
+<td>OkHttp, Retrofit y fuente remota</td>
+</tr>
+<tr>
+<td><code>di/RepositoryModule.kt</code></td>
+<td>Vinculación de repositorios mediante Hilt</td>
+</tr>
+<tr>
+<td><code>ui/contact/</code>, <code>ui/task/</code></td>
+<td>Estado, ViewModel y pantalla de cada función</td>
+</tr>
+<tr>
+<td><code>ui/navigation/AppNavigation.kt</code></td>
+<td>Rutas y barra inferior</td>
+</tr>
+<tr>
+<td><code>ConsumoDatosApp.kt</code></td>
+<td>Inicialización de Hilt con <code>@HiltAndroidApp</code></td>
+</tr>
+<tr>
+<td><code>MainActivity.kt</code></td>
+<td>Activity con <code>@AndroidEntryPoint</code>, tema y navegación</td>
+</tr>
+</tbody>
+</table>
+<h2 id="doc4-contactos">Contactos</h2>
+<p><code>Contact</code> y <code>ContactEntity</code> contienen <code>id: Long</code>, <code>name: String</code> y <code>phone: String</code>. El DAO ordena por <code>name ASC</code>, inserta con reemplazo ante conflicto y elimina por <code>id</code>. La inserción múltiple permite guardar resultados remotos.</p>
+<p><code>ContactRepositoryImpl.getContacts()</code> transforma el <code>Flow</code> local en modelos de dominio. <code>addContact()</code> guarda únicamente en Room; <code>deleteContact()</code> elimina únicamente en Room. <code>syncRemoteContacts()</code> descarga los DTO y los inserta localmente, como en la guía. Su <code>runCatching</code> no propaga el fallo al consumidor; no existe una acción visual de sincronización.</p>
+<p><code>ContactViewModel</code> observa los contactos desde su inicialización y publica <code>ContactUiState</code> mediante un <code>StateFlow</code> de solo lectura. El formulario delega los cambios de texto, guardado y eliminación al ViewModel. La pantalla representa carga, lista vacía y tarjetas con nombre, teléfono y botón Eliminar.</p>
+<h2 id="doc4-tareas">Tareas</h2>
+<p><code>Task</code> y <code>TaskEntity</code> contienen <code>id</code>, <code>name</code> e <code>isCompleted</code>, inicialmente <code>false</code>. El DAO expone listar por <code>id DESC</code> e insertar. La fuente local y el repositorio convierten la persistencia en un <code>Flow&lt;List&lt;Task&gt;&gt;</code>.</p>
+<p><code>TaskViewModel</code> observa esa lista, valida el nombre y limpia el campo después de guardar. <code>TaskScreen</code> muestra el formulario y las tarjetas con su estado. No se implementan completar, editar ni eliminar tareas porque la segunda guía limita expresamente el alcance a crear y listar.</p>
+<h2 id="doc4-actualizaciones-de-la-interfaz">Actualizaciones de la interfaz</h2>
+<p>La secuencia de guardado es Pantalla → ViewModel → Repositorio → Fuente local → DAO → Room. Tras la escritura, Room emite la lista actualizada; el repositorio la transforma, el ViewModel actualiza su estado y Compose vuelve a dibujarla. Las pantallas usan <code>collectAsStateWithLifecycle()</code>.</p>
+<h2 id="doc4-integracion-necesaria">Integración necesaria</h2>
+<ul>
+<li>Se registra <code>.ConsumoDatosApp</code> en el manifest y se anota la Activity para Hilt.</li>
+<li>Se añaden los proveedores de <code>TaskDao</code>, <code>TaskLocalDataSource</code> y <code>TaskRepository</code> indicados en la segunda guía.</li>
+<li>Se declaran explícitamente Lifecycle Runtime Compose y ViewModel KTX en el catálogo y módulo para las API usadas en los ejemplos. Se reutiliza la versión Lifecycle del proyecto.</li>
+<li>Se mantiene la configuración de dependencias existente; <code>init.md</code> es un registro histórico y sus versiones pueden diferir del catálogo actual, que es la configuración efectiva.</li>
+</ul>
+<h2 id="doc4-limites-de-los-ejemplos-originales">Límites de los ejemplos originales</h2>
+<p>El proveedor de Room conserva <code>fallbackToDestructiveMigration()</code> de la primera guía. Si se abre una base anterior sin una migración compatible, puede recrearla y perder sus registros; no se ha definido una migración de conservación en el material.</p>
+<p>Los ViewModel mantienen el manejo de errores de las guías: Contactos captura errores del flujo de lectura, pero las escrituras y la pantalla de tareas no tienen un tratamiento específico de fallos. El estado <code>errorMessage</code> de Contactos no se representa visualmente en el ejemplo. El interceptor de red conserva nivel BODY.</p></article>
+<article id="document-5" class="document" hidden data-title="5. Verificación"><p class="source">Fuente: docs/verificacion.md</p><h1 id="doc5-verificacion">Verificación</h1>
+<h2 id="doc5-comandos">Comandos</h2>
+<p>Ejecutar desde la raíz en PowerShell:</p>
+<pre><code class="language-powershell">.\gradlew.bat :app:assembleDebug :app:testDebugUnitTest :app:lintDebug --console=plain
+</code></pre>
+<h2 id="doc5-pruebas-automatizadas">Pruebas automatizadas</h2>
+<p><code>RepositoryTest.kt</code> usa fuentes en memoria para comprobar el comportamiento del repositorio sin dispositivo ni servidor:</p>
+<ol>
+<li>Crear y eliminar un contacto opera en la fuente local sin consultar la red.</li>
+<li>Sincronizar explícitamente descarga contactos y los guarda en la fuente local.</li>
+<li>Crear una tarea guarda el nombre y el estado pendiente y permite leerla desde el repositorio.</li>
+</ol>
+<p>Estas pruebas no sustituyen la ejecución de Room real ni las pruebas de interacción de Compose. La prueba aritmética de plantilla se conserva.</p>
+<h2 id="doc5-comprobacion-manual-en-dispositivo">Comprobación manual en dispositivo</h2>
+<ul>
+<li>Abrir la app: debe aparecer Contactos y su lista vacía en una instalación limpia.</li>
+<li>Intentar guardar sin nombre o teléfono: no debe insertar filas.</li>
+<li>Guardar dos contactos con distintos nombres: deben aparecer ordenados alfabéticamente.</li>
+<li>Eliminar uno: debe desaparecer de la lista.</li>
+<li>Cambiar a Tareas y agregar una tarea: debe mostrar el nombre y Pendiente.</li>
+<li>Agregar otra: la más reciente debe aparecer primero.</li>
+<li>Intentar agregar una tarea vacía: no debe insertarse.</li>
+<li>Cambiar entre ambas pestañas: debe mostrarse la pantalla seleccionada.</li>
+<li>Cerrar y volver a abrir la app: los contactos y tareas guardados deben persistir.</li>
+</ul>
+<h2 id="doc5-resultado">Resultado</h2>
+<p>La ejecución final de <code>:app:assembleDebug :app:testDebugUnitTest :app:lintDebug</code> terminó con <code>BUILD SUCCESSFUL</code>.</p>
+<ul>
+<li>APK de depuración generado correctamente.</li>
+<li>Cuatro pruebas unitarias aprobadas: tres de repositorio y una de la plantilla.</li>
+<li>Android Lint completado sin errores que bloqueen la compilación.</li>
+<li><code>git diff --check</code> no detectó errores de espacios en los cambios rastreados.</li>
+</ul>
+<p>Gradle muestra avisos de configuración experimental, compatibilidad del objetivo JVM y uso obsoleto de <code>fallbackToDestructiveMigration()</code>; se conserva la configuración del material original. No se ha realizado una ejecución visual en emulador o dispositivo.</p></article>
+<footer><p style="color:var(--muted);font-size:13px">Versión HTML de los seis Markdown del proyecto. El mapa inicial es una explicación de su arquitectura. Los bloques de código se conservan como material de lectura; esta guía no modifica la aplicación.</p></footer></main>
+<script>
+const articles=[...document.querySelectorAll('.document')], buttons=[...document.querySelectorAll('.nav-item')];let current=0,expanded=false;
+document.querySelectorAll('.document pre').forEach(pre=>{if(pre.closest('.diagram-source'))return;const details=document.createElement('details');details.className='code-wrap';const summary=document.createElement('summary');const code=pre.querySelector('code');summary.textContent=code?.className.replace('language-','')?'Ver código · '+code.className.replace('language-',''):'Ver ejemplo / estructura';pre.before(details);details.append(summary,pre);const copy=document.createElement('button');copy.className='copy';copy.type='button';copy.textContent='Copiar';copy.onclick=async()=>{try{await navigator.clipboard.writeText(code?.textContent||pre.textContent);copy.textContent='Copiado';setTimeout(()=>copy.textContent='Copiar',1400)}catch(e){copy.textContent='Selecciona el texto para copiar'}};details.append(copy)});
+function show(index,scroll=true){current=index;articles.forEach((a,i)=>a.hidden=i!==index);buttons.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===index)));document.getElementById('search').value='';toc();if(scroll)document.querySelector('.toolbar').scrollIntoView({behavior:'smooth',block:'start'})}
+function toc(){const q=document.getElementById('search').value.trim().toLocaleLowerCase('es');const container=document.getElementById('toc');container.replaceChildren();let count=0;articles.forEach((article,i)=>{if(!q&&i!==current)return;article.querySelectorAll('h2,h3').forEach((h,j)=>{if(q&&!h.textContent.toLocaleLowerCase('es').includes(q))return;if(!h.id)h.id='heading-'+i+'-'+j;const a=document.createElement('a');a.href='#'+h.id;a.textContent=(q?documentsLabel(i)+' · ':'')+h.textContent;a.onclick=e=>{e.preventDefault();show(i,false);h.scrollIntoView({behavior:'smooth'});history.replaceState(null,'','#'+h.id)};container.append(a);count++})});document.getElementById('status').textContent=q?count+' secciones encontradas en todos los documentos.':'Índice de este documento · pulsa un título para ir a esa sección.'}
+function documentsLabel(i){return articles[i].dataset.title}
+document.querySelectorAll('[data-document]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();const i=Number(b.dataset.document);show(i);history.replaceState(null,'','#document-'+i)}));document.getElementById('search').addEventListener('input',toc);document.getElementById('expand').onclick=()=>{expanded=!expanded;document.querySelectorAll('.code-wrap').forEach(d=>d.open=expanded);document.getElementById('expand').textContent=expanded?'Ocultar todo el código':'Mostrar todo el código'};document.getElementById('print').onclick=()=>window.print();let previousOpen=[];window.addEventListener('beforeprint',()=>{previousOpen=[...document.querySelectorAll('details')].map(d=>d.open);document.querySelectorAll('details').forEach(d=>d.open=true)});window.addEventListener('afterprint',()=>document.querySelectorAll('details').forEach((d,i)=>d.open=previousOpen[i]));const target=location.hash?document.getElementById(decodeURIComponent(location.hash.slice(1))):null;const parent=target?.closest('.document');show(parent?articles.indexOf(parent):0,false);if(target)target.scrollIntoView();
+</script></body></html>
